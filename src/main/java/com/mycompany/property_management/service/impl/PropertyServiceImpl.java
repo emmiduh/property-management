@@ -49,12 +49,9 @@ public class PropertyServiceImpl implements PropertyService {
         Optional<PropertyEntity> optEn = propertyRepository.findById(propertyId);
         PropertyDTO dto = null;
         if(optEn.isPresent()) {
-
             PropertyEntity pe = optEn.get();
             pe.setTitle(propertyDTO.getTitle());
             pe.setAddress(propertyDTO.getAddress());
-            pe.setOwnerEmail(propertyDTO.getOwnerEmail());
-            pe.setOwnerName(propertyDTO.getOwnerName());
             pe.setPrice(propertyDTO.getPrice());
             pe.setDescription(propertyDTO.getDescription());
             dto = propertyConverter.convertEntitytoDTO(pe);
